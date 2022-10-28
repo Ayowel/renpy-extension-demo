@@ -1,3 +1,4 @@
+# This is based on the documentation example available at https://www.renpy.org/doc/html/cdd.html
 import renpy
 from demo_appearing import Appearing
 
