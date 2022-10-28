@@ -1,0 +1,21 @@
+name: Test and lint
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        path: project
+    - name: "Download Ren'Py"
+      run: |
+        mkdir renpy
+        curl https://www.renpy.org/dl/8.0.3/renpy-8.0.3-sdk.tar.bz2 | tar -xjC renpy --strip-components 1
+    - name: "Build extensions' archives"
+      run: |
+        renpy/lib/py3-linux-x86_64/python project/extensions/build.py
+    - name: "Lint Ren'Py code"
+      run: |
+        renpy/renpy.sh project lint --compile --error-code
