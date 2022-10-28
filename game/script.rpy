@@ -19,4 +19,13 @@ label start:
     "A moving image with a custom warper"
 
     hide screen demo_warper_example
+
+    "A random lorem ipsum word is coming up, rollback to see them all !"
+    random:
+        "Lorem."
+        "Ipsum"
+        "Dolor"
+        "Sic"
+        "Amet"
+
     return
