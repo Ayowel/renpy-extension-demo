@@ -17,4 +17,4 @@ def next_random(choices):
 
 def lint_random(parsed_object):
     for i in parsed_object:
-        renpy.text.extras.check_text_tags(i.what)
+        renpy.text.extras.check_text_tags(i)
