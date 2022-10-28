@@ -4,6 +4,6 @@ image demo_warper_logo:
 
     linear_ext 1 xalign 1.
 
-screen demo_warper_example:
+screen demo_warper_example():
 
     image 'demo_warper_logo'
