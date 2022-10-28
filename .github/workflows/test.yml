@@ -19,11 +19,12 @@ jobs:
         path: project
     - name: Ren'Py directory cache management
       uses: actions/cache@v3.0.11
-      id: renpy-cache
+      id: cache-renpy
       with:
         path: renpy
         key: ${{ runner.os }}-${{ matrix.renpy_version }}-primes
     - name: "Download Ren'Py"
+      if: steps.cache-renpy.outputs.cache-hit != 'true'
       run: |
         mkdir renpy
         curl https://www.renpy.org/dl/${{ matrix.renpy_version }}/renpy-${{ matrix.renpy_version }}-sdk.tar.bz2 | tar -xjC renpy --strip-components 1
