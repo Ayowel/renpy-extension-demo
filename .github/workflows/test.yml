@@ -5,17 +5,31 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        renpy_version: ['7.5.3', '8.0.3']
+        include:
+          - renpy_version: '7.5.3'
+            python_dir: 'py2-linux-x86_64'
+          - renpy_version: '8.0.3'
+            python_dir: 'py3-linux-x86_64'
     steps:
     - uses: actions/checkout@v3
       with:
         path: project
+    - name: Ren'Py directory cache management
+      uses: actions/cache@v3.0.11
+      id: renpy-cache
+      with:
+        path: renpy
+        key: ${{ runner.os }}-${{ matrix.renpy_version }}-primes
     - name: "Download Ren'Py"
       run: |
         mkdir renpy
-        curl https://www.renpy.org/dl/8.0.3/renpy-8.0.3-sdk.tar.bz2 | tar -xjC renpy --strip-components 1
+        curl https://www.renpy.org/dl/${{ matrix.renpy_version }}/renpy-${{ matrix.renpy_version }}-sdk.tar.bz2 | tar -xjC renpy --strip-components 1
     - name: "Build extensions' archives"
       run: |
-        renpy/lib/py3-linux-x86_64/python project/extensions/build.py
+        renpy/lib/${{ matrix.python_dir }}/python project/extensions/build.py
     - name: "Lint Ren'Py code"
       run: |
         renpy/renpy.sh project lint --compile --error-code
