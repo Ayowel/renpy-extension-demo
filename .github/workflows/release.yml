@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+env:
+  RENPY_VERSION: '8.0.3'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        channel: ['win', 'linux', 'mac']
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        path: project
+    - name: Ren'Py directory cache management
+      uses: actions/cache@v3.0.11
+      id: cache-renpy
+      with:
+        path: renpy
+        key: ${{ runner.os }}-${RENPY_VERSION}-primes
+    - name: "Download Ren'Py"
+      if: steps.cache-renpy.outputs.cache-hit != 'true'
+      run: |
+        mkdir renpy
+        curl https://www.renpy.org/dl/${RENPY_VERSION}/renpy-${RENPY_VERSION}-sdk.tar.bz2 | tar -xjC renpy --strip-components 1
+    - name: "Build extensions' archives"
+      run: |
+        renpy/lib/py3-linux-x86_64/python project/extensions/build.py
+    - name: "Generate release files"
+      run: |
+        renpy/renpy.sh '' distribute project --destination target --package ${{ matrix.channel }}
+    - name: "Find released file"
+      uses: mathiasvr/command-output@v1.1.0
+      id: package-path
+      with:
+        run: |
+          echo -n "$(find target -name "*-${{ matrix.channel }}.*")"
+    - uses: Ayowel/butler-publish-itchio-action@v2.0.0
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: ${{ matrix.channel }}
+        ITCH_GAME: renpy-extensions-demo
+        ITCH_USER: ayowel
+        PACKAGE: ${{ steps.package-path.outputs.stdout }}
