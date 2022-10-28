@@ -1,5 +1,5 @@
 # This is based on the documentation example available at https://www.renpy.org/doc/html/cds.html
-from demo_label_random import *
+from demo_label_random import lint_random, next_random, parse_random
 import renpy
 
 renpy.statements.register(
