@@ -9,7 +9,9 @@ label start:
     "A hidden appearing image, move your cursor around the center of the screen"
 
     hide screen demo_appearing_example
+    show screen demo_appearing_example_class
 
-    "Once you add a story, pictures, and music, you can release it to the world!"
+    "The same image, but in the screen's code we use a class instanciation !"
 
+    hide screen demo_appearing_example_class
     return
