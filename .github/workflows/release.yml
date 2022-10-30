@@ -2,6 +2,9 @@ name: Release
 
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - v*
 
 env:
   RENPY_VERSION: '8.0.3'
@@ -33,16 +36,19 @@ jobs:
     - name: "Generate release files"
       run: |
         renpy/renpy.sh '' distribute project --destination target --package ${{ matrix.channel }}
-    - name: "Find released file"
-      uses: mathiasvr/command-output@v1.1.0
-      id: package-path
-      with:
-        run: |
-          echo -n "$(find target -name "*-${{ matrix.channel }}.*")"
+    - name: "Get release info"
+      id: release-info
+      run: |
+        echo -n "PACKAGE_PATH=" >>$GITHUB_OUTPUT
+        find target -name "*-${{ matrix.channel }}.*" >>$GITHUB_OUTPUT
+        echo -n "VERSION=" >>$GITHUB_OUTPUT
+        cd project
+        git describe --always --tags >>$GITHUB_OUTPUT
     - uses: Ayowel/butler-publish-itchio-action@v2.0.0
       env:
         BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
         CHANNEL: ${{ matrix.channel }}
         ITCH_GAME: renpy-extensions-demo
         ITCH_USER: ayowel
-        PACKAGE: ${{ steps.package-path.outputs.stdout }}
+        PACKAGE: ${{ steps.release-info.outputs.PACKAGE_PATH }}
+        VERSION: ${{ steps.release-info.outputs.VERSION }}
