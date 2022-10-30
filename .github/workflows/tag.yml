@@ -1,0 +1,29 @@
+name: Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      tagname:
+        description: The version to create
+        required: true
+        default: '0.0.0'
+        type: string
+
+env:
+  RENPY_VERSION: '8.0.3'
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Fail if uninitialized"
+      if: ${{ inputs.tagname == '0.0.0' }}
+      run: exit 1
+    - uses: actions/checkout@v3
+    - name: "Update version"
+      run: |
+        sed -i 's/define config.version = .*$/define config.version = "${{ inputs.tagname }}"/g' game/options.rpy
+    - uses: EndBug/add-and-commit@v9.1.1
+      with:
+        message: "[autobot] Create commit for version v${{ inputs.tagname }}"
+        tag: "v${{ inputs.tagname }}"
