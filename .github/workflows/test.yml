@@ -7,10 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        renpy_version: ['7.5.3', '8.0.3']
+        renpy_version: ['8.0.3']
         include:
-          - renpy_version: '7.5.3'
-            python_dir: 'py2-linux-x86_64'
           - renpy_version: '8.0.3'
             python_dir: 'py3-linux-x86_64'
     steps:
