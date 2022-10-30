@@ -1,3 +1,5 @@
+# This is based on the documentation example available at
+# https://www.renpy.org/doc/html/cds.html
 import random
 import renpy
 
