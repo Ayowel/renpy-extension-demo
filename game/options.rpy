@@ -128,6 +128,9 @@ default preferences.text_cps = 50
 
 default preferences.afm_time = 15
 
+## The default language
+
+define config.default_language = 'en_US'
 
 ## Save directory ##############################################################
 ##
