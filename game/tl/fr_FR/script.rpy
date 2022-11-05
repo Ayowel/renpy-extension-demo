@@ -44,7 +44,7 @@ translate fr_FR story_3a5720da:
 translate fr_FR story_adf41934:
 
     # "I remember now. I had to create my extension files by hand at the time."
-    "Je me souviens que je devais alors créer l'extension à la main à l'époque."
+    "Je me souviens que je devais créer l'extension à la main à l'époque."
 
 # game/script.rpy:34
 translate fr_FR story_5ce9412e:
@@ -74,7 +74,7 @@ translate fr_FR story_a33f833e:
 translate fr_FR story_57c64c2c:
 
     # "I'm going to show them to you, however keep in mind that once you start looking at code, you will have to click down here to keep progressing."
-    "Je vais vous les montrer, mais garder à l'esprit qu'une fois que vous commencerez à lire du code, il faudra cliquer ici pour pouvoir progresser."
+    "Je vais vous les montrer, mais gardez à l'esprit qu'une fois que vous commencerez à lire du code, il faudra cliquer ici pour pouvoir progresser."
 
 # game/script.rpy:46
 translate fr_FR story_1cc14f85:
@@ -98,7 +98,7 @@ translate fr_FR story_0648a007:
 translate fr_FR story_ead830c2:
 
     # "It declares a new image that is displayed in the {color=#888}demo_warper_example{/color} screen. Notice how it uses a {color=#888}linear_ext{/color} warper, which does not exist in Ren'Py."
-    "Il crée une nouvelle image qui est affichée dans l'écran {color=#888}demo_warper_example{/color}. Voyez comme elle utilise le warper {color=#888}linear_ext{/color}, qui ne devrait pas exister dans Ren'Py."
+    "Il crée une nouvelle image qui est affichée dans l'écran {color=#888}demo_warper_example{/color}. Voyez comme elle utilise le warper {color=#888}linear_ext{/color} qui n'existe pas par défaut dans Ren'Py."
 
 # game/script.rpy:50
 translate fr_FR story_d39020f8:
@@ -110,7 +110,7 @@ translate fr_FR story_d39020f8:
 translate fr_FR story_bb531d9a:
 
     # "The first thing I did here is load renpy, as it is not available by default in an extension."
-    "La première chose que j'y ai faite est d'importer renpy, car il n'est pas disponible par défaut dans les extensions."
+    "La première chose que j'y ai fait est d'importer renpy, car il n'est pas disponible par défaut dans les extensions."
 
 # game/script.rpy:52
 translate fr_FR story_4fc1b6c1:
@@ -188,7 +188,7 @@ translate fr_FR story_d61a6ab2:
 translate fr_FR story_f07b0019:
 
     # "This extension is a bit shy, move your cursor around the center of the screen to see what it does."
-    "Cette extension est un peu timide, bouger votre souris au centre de l'écran pour voir ce qu'elle fait."
+    "Cette extension est un peu timide, bougez votre souris au centre de l'écran pour voir ce qu'elle fait."
 
 # game/script.rpy:74
 translate fr_FR story_fae84070:
@@ -200,7 +200,7 @@ translate fr_FR story_fae84070:
 translate fr_FR story_5aefa4d5:
 
     # "The second one directly uses the Displayable's class, while the first one uses a custom screen label."
-    "Le second écran utilise directement la classe du composant affichable, tandis que le premier utiliser une instruction d'écran spécifique."
+    "Le second écran utilise directement la classe du composant affichable, tandis que le premier utilise une instruction d'écran spécifique."
 
 # game/script.rpy:76
 translate fr_FR story_a4d8d432:
