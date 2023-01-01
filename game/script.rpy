@@ -1,4 +1,8 @@
-﻿label start:
+﻿label main_menu:
+    # Skip main menu
+    return
+
+label start:
     call main_choice
     return
 
