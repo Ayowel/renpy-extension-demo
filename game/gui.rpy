@@ -81,14 +81,6 @@ define gui.notify_text_size = 24
 ## The size of the game's title.
 define gui.title_text_size = 75
 
-
-## Main and Game Menus #########################################################
-
-## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
-define gui.game_menu_background = "gui/game_menu.png"
-
-
 ## Dialogue ####################################################################
 ##
 ## These variables control how dialogue is displayed on the screen one line at a
@@ -272,9 +264,6 @@ define gui.page_spacing = 0
 ## The spacing between file slots.
 define gui.slot_spacing = 15
 
-## The position of the main menu text.
-define gui.main_menu_text_xalign = 1.0
-
 
 ## Frames ######################################################################
 ##
@@ -328,31 +317,6 @@ define gui.vslider_borders = Borders(6, 6, 6, 6)
 ## What to do with unscrollable scrollbars in the gui. "hide" hides them, while
 ## None shows them.
 define gui.unscrollable = "hide"
-
-
-## History #####################################################################
-##
-## The history screen displays dialogue that the player has already dismissed.
-
-## The number of blocks of dialogue history Ren'Py will keep.
-define config.history_length = 250
-
-## The height of a history screen entry, or None to make the height variable at
-## the cost of performance.
-define gui.history_height = 210
-
-## The position, width, and alignment of the label giving the name of the
-## speaking character.
-define gui.history_name_xpos = 233
-define gui.history_name_ypos = 0
-define gui.history_name_width = 233
-define gui.history_name_xalign = 1.0
-
-## The position, width, and alignment of the dialogue text.
-define gui.history_text_xpos = 255
-define gui.history_text_ypos = 3
-define gui.history_text_width = 1110
-define gui.history_text_xalign = 0.0
 
 
 ## NVL-Mode ####################################################################
@@ -472,3 +436,125 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
+
+
+################################################################################
+## GUI Images
+################################################################################
+
+# Sliders
+
+image slider_horizontal_hover_bar:
+    "#005b7a"
+    xsize 525 ysize 38
+image slider_horizontal_idle_bar:
+    "#003d51"
+    xsize 525 ysize 38
+image slider_horizontal_hover_thumb:
+    "#66c1e0"
+    xsize 15 ysize 38
+image slider_horizontal_idle_thumb:
+    "#0099cc"
+    xsize 15 ysize 38
+image slider_vertical_hover_bar:
+    "#005b7a"
+    xsize 38 ysize 525
+image slider_vertical_idle_bar:
+    "#003d51"
+    xsize 38 ysize 525
+image slider_vertical_hover_thumb:
+    "#66c1e0"
+    xsize 38 ysize 15
+image slider_vertical_idle_thumb:
+    "#0099cc"
+    xsize 38 ysize 15
+
+# Scrollbars
+
+image scrollbar_horizontal_hover_bar:
+    "#005b7a"
+    xsize 1050 ysize 18
+image scrollbar_horizontal_idle_bar:
+    "#003d51"
+    xsize 1050 ysize 18
+image scrollbar_horizontal_hover_thumb:
+    "#66c1e0"
+    xsize 15 ysize 18
+image scrollbar_horizontal_idle_thumb:
+    "#0099cc"
+    xsize 15 ysize 18
+image scrollbar_vertical_hover_bar:
+    "#005b7a"
+    xsize 18 ysize 1050
+image scrollbar_vertical_idle_bar:
+    "#003d51"
+    xsize 18 ysize 1050
+image scrollbar_vertical_hover_thumb:
+    "#66c1e0"
+    xsize 18 ysize 15
+image scrollbar_vertical_idle_thumb:
+    "#0099cc"
+    xsize 18 ysize 15
+
+# Buttons
+
+image button_check_foreground:
+    xsize 27 ysize 49
+
+layeredimage button_check_foreground:
+    xsize 27 ysize 49
+    always:
+        pos (4, 6)
+        size (7, 37)
+        "#0099cc"
+
+image button_radio_foreground:
+    xsize 27 ysize 49
+
+layeredimage button_radio_selected_foreground:
+    xsize 27 ysize 49
+    always:
+        pos (4, 6)
+        size (7, 37)
+        "#0099cc"
+
+# Bars
+
+image bar_bottom:
+    "#66c1e0"
+    xsize 35 ysize 525
+image bar_left:
+    "#66c1e0"
+    xsize 525 ysize 35
+image bar_right:
+    "#003d51"
+    xsize 525 ysize 35
+image bar_top:
+    "#003d51"
+    xsize 35 ysize 525
+
+# Backgrounds
+
+image confirm_bg:
+    "#000"
+    alpha 170./255.
+
+layeredimage game_menu_bg:
+    always:
+        "#000" alpha 0.5
+    always:
+        pos (416, 180)
+        size (4, 855)
+        "#0099cc"
+
+layeredimage frame:
+    always:
+        size (900, 375)
+        "#0099cc"
+    always:
+        pos (4, 4)
+        size (892, 367)
+        "#000"
+
+image namebox:
+    xsize 450 ysize 54

@@ -51,13 +51,12 @@ define config.has_voice = True
 # define config.sample_sound = "sample-sound.ogg"
 # define config.sample_voice = "sample-voice.ogg"
 
+## Saves #######################################################################
 
-## Uncomment the following line to set an audio file that will be played while
-## the player is at the main menu. This file will continue playing into the
-## game, until it is stopped or another file is played.
-
-# define config.main_menu_music = "main-menu-theme.ogg"
-
+define config.has_autosave = False
+define config.has_quicksave = False
+define config.autosave_on_quit = False
+define config.autosave_on_choice = False
 
 ## Transitions #################################################################
 ##
@@ -126,22 +125,6 @@ default preferences.afm_time = 15
 
 define config.default_language = 'en_US'
 
-## Save directory ##############################################################
-##
-## Controls the platform-specific place Ren'Py will place the save files for
-## this game. The save files will be placed in:
-##
-## Windows: %APPDATA\RenPy\<config.save_directory>
-##
-## Macintosh: $HOME/Library/RenPy/<config.save_directory>
-##
-## Linux: $HOME/.renpy/<config.save_directory>
-##
-## This generally should not be changed, and if it is, should always be a
-## literal string, not an expression.
-
-define config.save_directory = "renpy_extensions_demo-1666942368"
-
 
 ## Icon ########################################################################
 ##
@@ -192,16 +175,3 @@ init python:
 
     build.documentation('*.html')
     build.documentation('*.txt')
-
-
-## A Google Play license key is required to download expansion files and perform
-## in-app purchases. It can be found on the "Services & APIs" page of the Google
-## Play developer console.
-
-# define build.google_play_key = "..."
-
-
-## The username and project name associated with an itch.io project, separated
-## by a slash.
-
-# define build.itch_project = "renpytom/test-project"
